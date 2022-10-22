@@ -2,7 +2,7 @@
 
 Edge::Edge(string valSource, string valDestination, int weight): source{valSource}, destination{valDestination}, weight{weight} {}
 
-Edge::Edge(Vertex& source, Vertex& destination, int weight): source{source}, destination{destination}, weight{weight} {}
+Edge::Edge(const Vertex& source,const Vertex& destination, int weight): source{source}, destination{destination}, weight{weight} {}
 
 Edge::Edge(const Edge& edge): source{edge.source}, destination{edge.destination}, weight{edge.weight} {}
 

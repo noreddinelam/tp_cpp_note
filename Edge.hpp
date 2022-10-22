@@ -11,7 +11,7 @@ class Edge {
 
     public : 
         Edge(string, string, int);
-        Edge(Vertex&, Vertex&, int);
+        Edge(const Vertex&,const Vertex&, int);
         Edge(const Edge&);
         int getWeight() const;
         void setWeight(const int);

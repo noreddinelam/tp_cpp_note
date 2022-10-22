@@ -9,11 +9,11 @@ class Graph{
         set<Vertex> vertices;
         set<Edge> edges;
     public:
-        Graph(set<Vertex>, set<Edge>);
+        Graph(set<Vertex>&, set<Edge>&);
         Graph(const Graph&);
-        set<Vertex> getVertices();
-        set<Edge> getEdges();
-        void ajoute_sommmet(Vertex&);
+        const set<Vertex>& getVertices() const;
+        const set<Edge>& getEdges() const;
+        void ajoute_sommet(Vertex&);
         void ajoute_sommet(string);
         void ajoute_arete(Edge&);
         void ajoute_arete(Vertex&, Vertex&, int);
@@ -22,8 +22,7 @@ class Graph{
         void symetrise();
         void kruskal(); // must return minimal spanning
 };
+
 ostream& operator<<(ostream &out, const Graph &x);
-
-
 
 #endif

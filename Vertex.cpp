@@ -22,4 +22,8 @@ ostream& operator<<(ostream &out, const Vertex &x) {
     return out;
 }
 
+bool Vertex::operator==(const Vertex& vertex) const {
+    return this == &vertex;
+}
+
 

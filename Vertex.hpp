@@ -14,6 +14,7 @@ class Vertex {
         string getValue() const;
         int getMarked() const;
         void setMarked(int);
+        bool operator==(const Vertex& vertex) const;
 };
 
 ostream& operator<<(ostream &out, const Vertex &x);
