@@ -7,7 +7,7 @@
 class Graph{
     private: 
         set<Vertex> vertices;
-        set<Edge> aretes;
+        set<Edge> edges;
     public:
         Graph(set<Vertex>, set<Edge>);
         Graph(const Graph&);

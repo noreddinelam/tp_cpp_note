@@ -5,20 +5,17 @@
 using namespace std;
 
 class Vertex{
-
     private:
-        const string etiquette;
-        int indx;
+        const string value;
+        int marked;
     public : 
         Vertex(string);
         Vertex(const Vertex&);
-        string get_etiquette();
-        int get_indx();
-        void set_indx(int);
+        string getValue();
+        int getMarked();
+        void setMarked(int);
 };
 
 ostream& operator<<(ostream &out, const Vertex &x);
-
-
 
 #endif
