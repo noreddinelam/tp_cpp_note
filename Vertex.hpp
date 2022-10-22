@@ -4,15 +4,15 @@
 #include<iostream>
 using namespace std;
 
-class Vertex{
+class Vertex {
     private:
         const string value;
         int marked;
     public : 
         Vertex(string);
         Vertex(const Vertex&);
-        string getValue();
-        int getMarked();
+        string getValue() const;
+        int getMarked() const;
         void setMarked(int);
 };
 

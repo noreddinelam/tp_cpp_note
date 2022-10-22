@@ -3,8 +3,8 @@
 #include "Vertex.hpp"
 
 
-class Edge{
-    private : 
+class Edge {
+    private :
         int weight;
         const Vertex source;
         const Vertex destination;
@@ -13,14 +13,12 @@ class Edge{
         Edge(string, string, int);
         Edge(Vertex&, Vertex&, int);
         Edge(const Edge&);
-        int getWeight();
-        void setWeight();
-        Vertex getSource();
-        Vertex getDestination();
-
-
+        int getWeight() const;
+        void setWeight(const int);
+        const Vertex& getSource() const;
+        const Vertex& getDestination() const;
 };
-ostream& operator<<(ostream &out, const Edge &x);
 
+ostream& operator<<(ostream &out, const Edge &x);
 
 #endif

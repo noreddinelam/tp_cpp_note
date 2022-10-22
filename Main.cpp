@@ -1,9 +1,10 @@
-#include <iostream>
 #include "Graph.hpp"
 #include "GC.hpp"
 
 int main(int argc, char const *argv[])
 {
-    /* code */
+    set<Vertex *> set;
+    Vertex vertex{""};
+    set.insert(&vertex);
     return 0;
 }

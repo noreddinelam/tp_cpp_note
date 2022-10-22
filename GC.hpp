@@ -3,12 +3,15 @@
 #include "Graph.hpp"
 
 //ça se trouve j'ai fait n'importe quoi !
-class GC{
+class GC {
     private:
-        set<Vertex*> vertices;
-        set<Edge*> edges;
+        static set<Vertex*> vertices;
+        static set<Edge*> edges;
+        GC(){}
     public :
-        static GC& getGcInstance();
+        static void addVertex( Vertex&);
+        static void addEdge(Edge&);
+        static void distruction();
 };
 
 
