@@ -1,5 +1,6 @@
-#ifndef SOHHET_H
-#define Vertex_H
+#ifndef VERTEX_H
+#define VERTEX_H
+
 #include<iostream>
 using namespace std;
 

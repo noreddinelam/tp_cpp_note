@@ -1,5 +1,5 @@
-#ifndef ARETE_H
-#define ARETE_H
+#ifndef EDGE_H
+#define EDGE_H
 #include "Vertex.hpp"
 
 

@@ -1,5 +1,6 @@
 #ifndef GRAPH_H
 #define GRAPH_H
+#include "Vertex.hpp"
 #include "Edge.hpp"
 #include <set>
 
@@ -19,7 +20,7 @@ class Graph{
         void ajoute_arete(string, string, int);
         int poids();
         void symetrise();
-        void kruskal(); // must return minimal spanning tree
+        void kruskal(); // must return minimal spanning
 };
 ostream& operator<<(ostream &out, const Graph &x);
 
