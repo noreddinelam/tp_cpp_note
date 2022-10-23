@@ -37,6 +37,7 @@ int Graph::poids() {
     for (set<Edge>::iterator itr = this->edges.begin(); itr != this->edges.end(); itr++) {
         poids += (*itr).getWeight();
     }
+    return poids;
 }
 
 
