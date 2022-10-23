@@ -5,8 +5,8 @@
 
 class Edge {
     private :
-        const Vertex source;
-        const Vertex destination;
+        const Vertex* source;
+        const Vertex* destination;
         int weight;
 
     public : 

@@ -1,10 +1,10 @@
 #include "Edge.hpp"
 
-Edge::Edge(string valSource, string valDestination, int weight): source{valSource}, destination{valDestination}, weight{weight} {
+Edge::Edge(string valSource, string valDestination, int weight): source{new Vertex(valSource)}, destination{new Vertex(valDestination)}, weight{weight} {
     cout << "Construction of edge with " << *this << endl;
 }
 
-Edge::Edge(const Vertex& source,const Vertex& destination, int weight): source{source}, destination{destination}, weight{weight} {
+Edge::Edge(const Vertex& source,const Vertex& destination, int weight): source{&source}, destination{&destination}, weight{weight} {
     cout << "Construction of edge with " << *this << endl;
 }
 
@@ -25,11 +25,11 @@ void Edge::setWeight(const int weight) {
 }
 
 const Vertex& Edge::getSource() const {
-    return source;
+    return *source;
 }
 
 const Vertex& Edge::getDestination() const {
-    return this->destination;
+    return *destination;
 }
 
 ostream& operator<<(ostream &out, const Edge &x) {
