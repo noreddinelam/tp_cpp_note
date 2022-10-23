@@ -13,6 +13,7 @@ class Edge {
         Edge(string, string, int);
         Edge(const Vertex&,const Vertex&, int);
         Edge(const Edge&);
+        virtual ~Edge();
         int getWeight() const;
         void setWeight(const int);
         const Vertex& getSource() const;

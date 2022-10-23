@@ -11,6 +11,7 @@ class Vertex {
     public : 
         Vertex(string);
         Vertex(const Vertex&);
+        virtual ~Vertex();
         string getValue() const;
         int getMarked() const;
         void setMarked(int);

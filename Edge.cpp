@@ -6,6 +6,10 @@ Edge::Edge(const Vertex& source,const Vertex& destination, int weight): source{s
 
 Edge::Edge(const Edge& edge): source{edge.source}, destination{edge.destination}, weight{edge.weight} {}
 
+Edge::~Edge() {
+    cout << "Destruction of Edge" << endl;
+}
+
 int Edge::getWeight() const {
     return this->weight;
 }

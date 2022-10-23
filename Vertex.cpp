@@ -5,6 +5,10 @@ Vertex::Vertex(string value): value{value} {}
 
 Vertex::Vertex(const Vertex& vertex): value{vertex.value} {}
 
+Vertex::~Vertex() {
+    cout << "Destruction of Vertex" << endl;
+}
+
 string Vertex::getValue() const {
     return this->value;
 }

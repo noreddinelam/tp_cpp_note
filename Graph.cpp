@@ -40,7 +40,7 @@ int Graph::poids() {
     return poids;
 }
 
-/*void Graph::symetrise() {
+void Graph::symetrise() {
     bool exist;
     set<Edge*> newEdges;
     for (set<Edge>::iterator itr = this->edges.begin(); itr != this->edges.end(); itr++) {
@@ -57,4 +57,4 @@ int Graph::poids() {
     for (set<Edge*>::iterator itr = newEdges.begin(); itr != newEdges.end(); itr++) {
         this->edges.insert(*(*itr));
     }
-}*/
+}
