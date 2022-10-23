@@ -1,17 +1,19 @@
 #ifndef GC_H
 #define GC_H
-#include "Graph.hpp"
 
-//ça se trouve j'ai fait n'importe quoi !
+#include "Vertex.hpp"
+#include "Edge.hpp"
+#include <set>
+
 class GC {
     private:
-        static set<Vertex*> vertices;
-        static set<Edge*> edges;
+        set<Vertex*> vertices{};
+        set<Edge*> edges{};
         GC(){}
     public :
-        static void addVertex( Vertex&);
-        static void addEdge(Edge&);
-        static void distruction();
+        void addVertex(Vertex&);
+        void addEdge(Edge&);
+        void distruction();
 };
 
 

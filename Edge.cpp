@@ -26,3 +26,7 @@ ostream& operator<<(ostream &out, const Edge &x) {
     out << "source : " << x.getSource() << " destination : " << x.getDestination() << " weight : " << x.getWeight() << endl;
     return out;
 }
+
+bool Edge::operator<(const Edge& edge) const {
+    return true;
+}

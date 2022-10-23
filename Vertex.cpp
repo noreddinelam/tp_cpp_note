@@ -26,4 +26,8 @@ bool Vertex::operator==(const Vertex& vertex) const {
     return this == &vertex;
 }
 
+bool Vertex::operator<(const Vertex& vertex) const {
+    return true;
+}
+
 

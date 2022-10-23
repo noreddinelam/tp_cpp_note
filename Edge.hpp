@@ -5,9 +5,9 @@
 
 class Edge {
     private :
-        int weight;
         const Vertex source;
         const Vertex destination;
+        int weight;
 
     public : 
         Edge(string, string, int);
@@ -17,6 +17,7 @@ class Edge {
         void setWeight(const int);
         const Vertex& getSource() const;
         const Vertex& getDestination() const;
+        bool operator<(const Edge& edge) const;
 };
 
 ostream& operator<<(ostream &out, const Edge &x);
