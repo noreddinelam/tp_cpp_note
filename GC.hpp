@@ -7,13 +7,17 @@
 
 class GC {
     private:
-        set<Vertex*> vertices{};
-        set<Edge*> edges{};
-        GC(){}
+        set<Vertex*> vertices;
+        set<Edge*> edges;
+        static GC* instance;
+        GC();
+        GC(const GC&);
     public :
+        virtual ~GC();
         void addVertex(Vertex&);
         void addEdge(Edge&);
         void distruction();
+        static GC *getInstance();
 };
 
 

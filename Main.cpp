@@ -3,9 +3,7 @@
 
 int main(int argc, char const *argv[])
 {
-    set<Vertex *> set;
-    Vertex vertex{"chkoukou"};
-    set.insert(&vertex);
-    cout << vertex;
+    GC* gc = GC::getInstance();
+    delete gc;
     return 0;
 }

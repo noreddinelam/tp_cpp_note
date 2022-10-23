@@ -11,6 +11,7 @@ class Graph{
     public:
         Graph(set<Vertex>&, set<Edge>&);
         Graph(const Graph&);
+        virtual ~Graph();
         const set<Vertex>& getVertices() const;
         const set<Edge>& getEdges() const;
         void ajoute_sommet(Vertex&);

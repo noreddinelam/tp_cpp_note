@@ -4,6 +4,10 @@ Graph::Graph(set<Vertex>& vertices, set<Edge>& edges): vertices{vertices}, edges
 
 Graph::Graph(const Graph& graph): vertices{graph.vertices}, edges{graph.edges} {}
 
+Graph::~Graph() {
+    cout << "Destruction of graph" << endl;
+}
+
 const set<Vertex>& Graph::getVertices() const {
     return this->vertices;
 }

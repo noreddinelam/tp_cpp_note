@@ -3,7 +3,9 @@
 
 Vertex::Vertex(string value): value{value} {}
 
-Vertex::Vertex(const Vertex& vertex): value{vertex.value} {}
+Vertex::Vertex(const Vertex& vertex): value{vertex.value} {
+    cout << "Copy constructor of vertex" << endl;
+}
 
 Vertex::~Vertex() {
     cout << "Destruction of Vertex" << endl;
