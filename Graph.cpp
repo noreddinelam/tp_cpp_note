@@ -62,3 +62,18 @@ void Graph::symetrise() {
         this->edges.insert(*(*itr));
     }
 }
+
+ostream& operator<<(ostream &out, const Graph &x) {
+    out << "Edges : " << endl;
+    for (set<Edge>::iterator itr = x.getEdges().begin(); itr != x.getEdges().end(); itr++) {
+        out << (*itr);
+    }
+    out << "------------------" << endl;
+
+    out << "Vertices : " << endl;
+    for (set<Vertex>::iterator itr = x.getVertices().begin(); itr != x.getVertices().end(); itr++) {
+        out << (*itr);
+    }
+    out << "------------------" << endl;
+    return out;
+}

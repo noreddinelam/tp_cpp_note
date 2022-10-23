@@ -1,15 +1,19 @@
 #include "Edge.hpp"
 
-Edge::Edge(string valSource, string valDestination, int weight): source{valSource}, destination{valDestination}, weight{weight} {}
+Edge::Edge(string valSource, string valDestination, int weight): source{valSource}, destination{valDestination}, weight{weight} {
+    cout << "Construction of edge with " << *this << endl;
+}
 
-Edge::Edge(const Vertex& source,const Vertex& destination, int weight): source{source}, destination{destination}, weight{weight} {}
+Edge::Edge(const Vertex& source,const Vertex& destination, int weight): source{source}, destination{destination}, weight{weight} {
+    cout << "Construction of edge with " << *this << endl;
+}
 
 Edge::Edge(const Edge& edge): source{edge.source}, destination{edge.destination}, weight{edge.weight} {
-    cout << "Copy constructor of Edge" << endl;
+    cout << "Copy constructor of Edge" << *this << endl;
 }
 
 Edge::~Edge() {
-    cout << "Destruction of Edge" << endl;
+    cout << "Destruction of Edge" << *this << endl;
 }
 
 int Edge::getWeight() const {
