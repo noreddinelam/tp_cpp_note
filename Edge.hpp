@@ -5,19 +5,19 @@
 
 class Edge {
     private :
-        const Vertex* source;
-        const Vertex* destination;
+        Vertex * const source;
+        Vertex* const destination;
         int weight;
 
     public : 
         Edge(string, string, int);
-        Edge(const Vertex&,const Vertex&, int);
+        Edge(Vertex* const,Vertex* const, int);
         Edge(const Edge&);
         virtual ~Edge();
         int getWeight() const;
         void setWeight(const int);
-        const Vertex& getSource() const;
-        const Vertex& getDestination() const;
+        Vertex* const getSource() const;
+        Vertex* const getDestination() const;
         bool operator<(const Edge& edge) const;
 };
 

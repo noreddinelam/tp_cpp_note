@@ -3,17 +3,18 @@
 
 int main(int argc, char const *argv[])
 {
+    // TEST 01 :
     GC* gc = GC::getInstance();
     Vertex* vertexA = new Vertex("A");
     Vertex* vertexB = new Vertex("B");
     Vertex* vertexC = new Vertex("C");
     Vertex* vertexD = new Vertex("D");
 
-    Edge* edgeAB = new Edge(*vertexA, *vertexB, 2);
-    Edge* edgeAC = new Edge(*vertexA, *vertexC, 3);
-    Edge* edgeAD = new Edge(*vertexA, *vertexD, 1);
-    Edge* edgeCD = new Edge(*vertexC, *vertexD, 8);
-    Edge* edgeBD = new Edge(*vertexB, *vertexD, 5);
+    Edge* edgeAB = new Edge(vertexA, vertexB, 2);
+    Edge* edgeAC = new Edge(vertexA, vertexC, 3);
+    Edge* edgeAD = new Edge(vertexA, vertexD, 1);
+    Edge* edgeCD = new Edge(vertexC, vertexD, 8);
+    Edge* edgeBD = new Edge(vertexB, vertexD, 5);
     
     set<Edge *> edges{edgeAB, edgeAC, edgeAD, edgeCD, edgeBD};
     
@@ -24,7 +25,7 @@ int main(int argc, char const *argv[])
     gc->addEdges(edges);
     gc->addVertices(vertices);
 
-   // cout << graph.poids() << endl;
+    cout << graph.poids() << endl;
 
     graph.symetrise();
 

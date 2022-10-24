@@ -4,7 +4,7 @@ Edge::Edge(string valSource, string valDestination, int weight): source{new Vert
     cout << "Construction of edge with " << *this << endl;
 }
 
-Edge::Edge(const Vertex& source,const Vertex& destination, int weight): source{&source}, destination{&destination}, weight{weight} {
+Edge::Edge(Vertex* const source, Vertex* const destination, int weight): source{source}, destination{destination}, weight{weight} {
     cout << "Construction of edge with " << *this << endl;
 }
 
@@ -24,19 +24,19 @@ void Edge::setWeight(const int weight) {
     this->weight = weight;
 }
 
-const Vertex& Edge::getSource() const {
-    return *source;
+Vertex* const Edge::getSource() const {
+    return source;
 }
 
-const Vertex& Edge::getDestination() const {
-    return *destination;
+Vertex* const Edge::getDestination() const {
+    return destination;
 }
 
 ostream& operator<<(ostream &out, const Edge &x) {
-    out << "source : " << x.getSource() << " destination : " << x.getDestination() << " weight : " << x.getWeight() << endl;
+    out << "source : " << *(x.getSource()) << " destination : " << *(x.getDestination()) << " weight : " << x.getWeight() << endl;
     return out;
 }
 
 bool Edge::operator<(const Edge& edge) const {
-    return true;
+    return this->weight < edge.weight;
 }

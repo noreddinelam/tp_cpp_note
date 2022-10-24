@@ -32,7 +32,7 @@ void Graph::ajoute_arete(Edge& edge) {
 }
 
 void Graph::ajoute_arete(Vertex& source, Vertex& destination, int weight) {
-    Edge *edge = new Edge{source, destination, weight};
+    Edge *edge = new Edge{&source, &destination, weight};
     GC::getInstance()->addEdge(*edge);
     this->edges.insert(edge);
 }
