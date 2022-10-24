@@ -29,7 +29,7 @@ class Graph{
         void ajoute_arete(string, string, int);
         int poids();
         void symetrise();
-        void kruskal(); // must return minimal spanning tree
+        set<Edge *> kruskal(); // must return minimal spanning tree
 };
 
 ostream& operator<<(ostream &out, const Graph &x);

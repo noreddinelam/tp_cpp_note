@@ -71,6 +71,32 @@ void Graph::symetrise() {
         this->edges.insert(*itr);
     }
 }
+set<Edge *> Graph::kruskal(){
+    set <Edge*> NewEdges;
+    this->symetrise();
+    //creer ensemble()
+    int indx =0;
+    for(set<Vertex*>::iterator itr = this->vertices.begin(); itr != this->vertices.end(); itr++){
+        (*itr)->setMarked(indx);
+        indx++;
+    }
+
+    for(set<Edge*>::iterator itr = this->edges.begin(); itr != this->edges.end(); itr++){
+        //find()
+        if( (*itr)->getSource()->getMarked() != (*itr)->getDestination()->getMarked()){
+            NewEdges.insert(*itr);
+        }
+        //union()
+       //(*itr)->getDestination()->setMarked((*itr)->getSource()->getMarked());
+        for(set<Vertex*>::iterator itrv = this->vertices.begin(); itrv != this->vertices.end(); itrv++){
+            if((*itrv)->getMarked() == (*itr)->getSource()->getMarked() || (*itrv)->getMarked() == (*itr)->getDestination()->getMarked() ){
+                (*itrv)->setMarked((*itr)->getSource()->getMarked());
+
+            }
+        }
+    }
+    return NewEdges;
+}
 
 ostream& operator<<(ostream &out, const Graph &x) {
     out << "Edges : " << endl;
