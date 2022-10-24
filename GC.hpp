@@ -1,8 +1,7 @@
 #ifndef GC_H
 #define GC_H
 
-#include "Vertex.hpp"
-#include "Edge.hpp"
+#include "Graph.hpp"
 #include <set>
 
 class GC {
@@ -17,7 +16,7 @@ class GC {
         void addVertex(Vertex&);
         void addVertices(set<Vertex *>&);
         void addEdge(Edge&);
-        void addEdges(set<Edge *>&);
+        void addEdges(set<Edge *, compareEdgesByWeight>&);
         void distruction();
         static GC *getInstance();
 };

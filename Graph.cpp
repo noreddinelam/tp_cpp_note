@@ -1,7 +1,7 @@
 #include "Graph.hpp"
 #include "GC.hpp"
 
-Graph::Graph(set<Vertex *>& vertices, set<Edge *>& edges): vertices{vertices}, edges{edges} {}
+Graph::Graph(set<Vertex *>& vertices, set<Edge *, compareEdgesByWeight>& edges): vertices{vertices}, edges{edges} {}
 
 Graph::Graph(const Graph& graph): vertices{graph.vertices}, edges{graph.edges} {}
 
@@ -13,7 +13,7 @@ const set<Vertex *>& Graph::getVertices() const {
     return this->vertices;
 }
 
-const set<Edge *>& Graph::getEdges() const {
+const set<Edge *, compareEdgesByWeight>& Graph::getEdges() const {
     return this->edges;
 }
 

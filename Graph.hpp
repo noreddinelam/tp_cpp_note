@@ -4,16 +4,24 @@
 #include "Edge.hpp"
 #include <set>
 
+struct compareEdgesByWeight
+{
+    bool operator()(Edge* const left, Edge* const right)
+    {
+        return (left->getWeight() < right->getWeight());
+    }
+};
+
 class Graph{
     private: 
         set<Vertex *> vertices;
-        set<Edge *> edges;
+        set<Edge *, compareEdgesByWeight> edges;
     public:
-        Graph(set<Vertex *>&, set<Edge *>&);
+        Graph(set<Vertex *>&, set<Edge *, compareEdgesByWeight>&);
         Graph(const Graph&);
         virtual ~Graph();
         const set<Vertex *>& getVertices() const;
-        const set<Edge *>& getEdges() const;
+        const set<Edge *, compareEdgesByWeight>& getEdges() const;
         void ajoute_sommet(Vertex&);
         void ajoute_sommet(string);
         void ajoute_arete(Edge&);

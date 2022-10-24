@@ -16,11 +16,13 @@ int main(int argc, char const *argv[])
     Edge* edgeCD = new Edge(vertexC, vertexD, 8);
     Edge* edgeBD = new Edge(vertexB, vertexD, 5);
     
-    set<Edge *> edges{edgeAB, edgeAC, edgeAD, edgeCD, edgeBD};
+    set<Edge *, compareEdgesByWeight> edges{edgeAB, edgeAC, edgeAD, edgeCD, edgeBD};
     
     set<Vertex *> vertices{vertexA, vertexB, vertexC, vertexD};
 
     Graph graph{vertices, edges};
+
+    cout << graph;
     
     gc->addEdges(edges);
     gc->addVertices(vertices);
