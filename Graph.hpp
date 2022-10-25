@@ -8,14 +8,14 @@ struct compareEdgesByWeight // Déclaration d'une fonction qui permet de faire l
 {
     bool operator()(Edge* const left, Edge* const right)
     {
-        return to_string(left->getWeight()) <= to_string(right->getWeight());
+        return left->getWeight() <= right->getWeight();
     }
 };
 
 class Graph{
     private: 
         set<Vertex *> vertices;
-        set<Edge *> edges; // création d'un ensemble d'arrête ordonné selon le paramêtre poids.
+        set<Edge *> edges;
     public:
         Graph(set<Vertex *>&, set<Edge *>&);
         Graph(const Graph&);

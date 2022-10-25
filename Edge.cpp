@@ -33,7 +33,7 @@ Vertex* const Edge::getDestination() const {
 }
 
 ostream& operator<<(ostream &out, const Edge &x) {
-    out << "source : " << *(x.getSource()) << " destination : " << *(x.getDestination()) << " weight : " << x.getWeight() << endl;
+    out << "( " << *(x.getSource()) << " , " << *(x.getDestination()) << " , " << x.getWeight() << " )" << endl;
     return out;
 }
 

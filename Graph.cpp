@@ -1,9 +1,15 @@
 #include "Graph.hpp"
 #include "GC.hpp"
 
-Graph::Graph(set<Vertex *>& vertices, set<Edge *>& edges): vertices{vertices}, edges{edges} {}
+Graph::Graph(set<Vertex *>& vertices, set<Edge *>& edges): vertices{vertices}, edges{edges} {
+    cout << "Creation of Graph" << endl;
+    GC::getInstance()->addEdges(edges);
+    GC::getInstance()->addVertices(vertices);
+}
 
-Graph::Graph(const Graph& graph): vertices{graph.vertices}, edges{graph.edges} {}
+Graph::Graph(const Graph& graph): vertices{graph.vertices}, edges{graph.edges} {
+    cout << "Copie of graph" << endl;
+}
 
 Graph::~Graph() {
     cout << "Destruction of graph" << endl;
@@ -19,6 +25,7 @@ const set<Edge *>& Graph::getEdges() const {
 
 void Graph::ajoute_sommet(Vertex& vertex) {
     this->vertices.insert(&vertex);
+    GC::getInstance()->addVertex(vertex);
 }
 
 void Graph::ajoute_sommet(string value) {
@@ -29,6 +36,7 @@ void Graph::ajoute_sommet(string value) {
 
 void Graph::ajoute_arete(Edge& edge) {
     this->edges.insert(&edge);
+    GC::getInstance()->addEdge(edge);
 }
 
 void Graph::ajoute_arete(Vertex& source, Vertex& destination, int weight) {
@@ -99,7 +107,7 @@ set<Edge *> Graph::kruskal() {
            //union
             int c = (*itr)->getDestination()->getMarked();
             for(set<Vertex*>::iterator itrv = this->vertices.begin(); itrv != this->vertices.end(); itrv++){
-                if((*itrv)->getMarked() == c){
+                if((*itrv)->getMarked() == c) {
                     (*itrv)->setMarked((*itr)->getSource()->getMarked());
                 }
             }
@@ -110,6 +118,7 @@ set<Edge *> Graph::kruskal() {
 }
 
 ostream& operator<<(ostream &out, const Graph &x) {
+    out << "Print Graph --------------------" << endl;
     out << "Edges : " << endl;
     for (set<Edge *>::iterator itr = x.getEdges().begin(); itr != x.getEdges().end(); itr++) {
         out << *(*itr);
@@ -120,6 +129,7 @@ ostream& operator<<(ostream &out, const Graph &x) {
     for (set<Vertex *>::iterator itr = x.getVertices().begin(); itr != x.getVertices().end(); itr++) {
         out << *(*itr);
     }
-    out << "------------------" << endl;
+    out << endl << "------------------" << endl;
+    out << "-------------------------------" << endl;
     return out;
 }
