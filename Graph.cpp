@@ -1,10 +1,7 @@
 #include "Graph.hpp"
-#include "GC.hpp"
 
 Graph::Graph(set<Vertex *>& vertices, set<Edge *>& edges): vertices{vertices}, edges{edges} {
     cout << "Creation of Graph" << endl;
-    GC::getInstance()->addEdges(edges);
-    GC::getInstance()->addVertices(vertices);
 }
 
 Graph::Graph(const Graph& graph): vertices{graph.vertices}, edges{graph.edges} {
@@ -25,29 +22,24 @@ const set<Edge *>& Graph::getEdges() const {
 
 void Graph::ajoute_sommet(Vertex& vertex) {
     this->vertices.insert(&vertex);
-    GC::getInstance()->addVertex(vertex);
 }
 
 void Graph::ajoute_sommet(string value) {
     Vertex *vertex= new Vertex{value};
-    GC::getInstance()->addVertex(*vertex);
     this->vertices.insert(vertex);
 }
 
 void Graph::ajoute_arete(Edge& edge) {
     this->edges.insert(&edge);
-    GC::getInstance()->addEdge(edge);
 }
 
 void Graph::ajoute_arete(Vertex& source, Vertex& destination, int weight) {
     Edge *edge = new Edge{&source, &destination, weight};
-    GC::getInstance()->addEdge(*edge);
     this->edges.insert(edge);
 }
 
 void Graph::ajoute_arete(string valSource, string valDestination, int weight) {
     Edge *edge = new Edge{valSource, valDestination, weight};
-    GC::getInstance()->addEdge(*edge);
     this->edges.insert(edge);
 }
 
@@ -72,7 +64,6 @@ void Graph::symetrise() {
         }
         if (!exist) {
             Edge *edge = new Edge{(*itr)->getDestination(), (*itr)->getSource(), (*itr)->getWeight()};
-            GC::getInstance()->addEdge(*edge);
             newEdges.insert(edge);
         }
     }
