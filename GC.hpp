@@ -4,7 +4,7 @@
 #include "Graph.hpp"
 #include <set>
 
-class GC {
+class GC { // Utilisation du pattern singleton comme on suppose qu'une seule instance de GC devra exister.
     private:
         set<Vertex*> vertices;
         set<Edge*> edges;

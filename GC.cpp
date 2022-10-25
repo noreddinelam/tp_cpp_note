@@ -39,6 +39,7 @@ void GC::addEdges(set<Edge *>& edges) {
 }
 
 void GC::distruction() {
+    cout << "Edges to delete : " << instance->edges.size() << " Vertices to delete : " << instance->vertices.size() << endl;
     set<Edge*>::iterator itr2 = instance->edges.begin();
     while (itr2 != instance->edges.end()) {
         delete (*itr2);
