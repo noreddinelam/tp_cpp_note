@@ -54,6 +54,7 @@ int Graph::poids() {
 void Graph::symetrise() {
     bool exist;
     set<Edge*> newEdges;
+
     for (set<Edge *>::iterator itr = this->edges.begin(); itr != this->edges.end(); itr++) {
         exist = false;
         for (set<Edge *>::iterator itr2 = itr; itr2 != this->edges.end() && exist != true; itr2++) {
@@ -67,10 +68,12 @@ void Graph::symetrise() {
             newEdges.insert(edge);
         }
     }
+
     for (set<Edge*>::iterator itr = newEdges.begin(); itr != newEdges.end(); itr++) {
         this->edges.insert(*itr);
     }
 }
+
 set<Edge *> Graph::kruskal() {
     set <Edge*> NewEdges;
     this->symetrise();
@@ -83,25 +86,26 @@ set<Edge *> Graph::kruskal() {
     }
 
     //creer ensemble()
-    int indx =0;
+    int indx = 0;
     for(set<Vertex*>::iterator itr = this->vertices.begin(); itr != this->vertices.end(); itr++) {
         (*itr)->setMarked(indx);
         indx++;
     }
 
-    for(set<Edge*>::iterator itr = sortedEdges.begin(); itr != sortedEdges.end(); itr++){
+    for(set<Edge*>::iterator itr = sortedEdges.begin(); itr != sortedEdges.end(); itr++) {
         //find()
         if( (*itr)->getSource()->getMarked() != (*itr)->getDestination()->getMarked()){
             NewEdges.insert(*itr);
-        }
-        //union()
-        // (*itr)->getDestination()->setMarked((*itr)->getSource()->getMarked());
-        for(set<Vertex*>::iterator itrv = this->vertices.begin(); itrv != this->vertices.end(); itrv++){
-            if((*itrv)->getMarked() == (*itr)->getSource()->getMarked() || (*itrv)->getMarked() == (*itr)->getDestination()->getMarked() ){
-                (*itrv)->setMarked((*itr)->getSource()->getMarked());
+           //union
+            int c = (*itr)->getDestination()->getMarked();
+            for(set<Vertex*>::iterator itrv = this->vertices.begin(); itrv != this->vertices.end(); itrv++){
+                if((*itrv)->getMarked() == c){
+                    (*itrv)->setMarked((*itr)->getSource()->getMarked());
+                }
             }
         }
     }
+
     return NewEdges;
 }
 
