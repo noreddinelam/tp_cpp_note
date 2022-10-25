@@ -1,7 +1,7 @@
 #include "Graph.hpp"
 #include "GC.hpp"
 
-Graph::Graph(set<Vertex *>& vertices, set<Edge *, compareEdgesByWeight>& edges): vertices{vertices}, edges{edges} {}
+Graph::Graph(set<Vertex *>& vertices, set<Edge *>& edges): vertices{vertices}, edges{edges} {}
 
 Graph::Graph(const Graph& graph): vertices{graph.vertices}, edges{graph.edges} {}
 
@@ -13,7 +13,7 @@ const set<Vertex *>& Graph::getVertices() const {
     return this->vertices;
 }
 
-const set<Edge *, compareEdgesByWeight>& Graph::getEdges() const {
+const set<Edge *>& Graph::getEdges() const {
     return this->edges;
 }
 
@@ -71,27 +71,34 @@ void Graph::symetrise() {
         this->edges.insert(*itr);
     }
 }
-set<Edge *> Graph::kruskal(){
+set<Edge *> Graph::kruskal() {
     set <Edge*> NewEdges;
     this->symetrise();
+
+    // sort edges :
+    set<Edge *, compareEdgesByWeight> sortedEdges;
+
+    for(set<Edge*>::iterator itr = this->edges.begin(); itr != this->edges.end(); itr++){
+        sortedEdges.insert(*itr);
+    }
+
     //creer ensemble()
     int indx =0;
-    for(set<Vertex*>::iterator itr = this->vertices.begin(); itr != this->vertices.end(); itr++){
+    for(set<Vertex*>::iterator itr = this->vertices.begin(); itr != this->vertices.end(); itr++) {
         (*itr)->setMarked(indx);
         indx++;
     }
 
-    for(set<Edge*>::iterator itr = this->edges.begin(); itr != this->edges.end(); itr++){
+    for(set<Edge*>::iterator itr = sortedEdges.begin(); itr != sortedEdges.end(); itr++){
         //find()
         if( (*itr)->getSource()->getMarked() != (*itr)->getDestination()->getMarked()){
             NewEdges.insert(*itr);
         }
         //union()
-       //(*itr)->getDestination()->setMarked((*itr)->getSource()->getMarked());
+        // (*itr)->getDestination()->setMarked((*itr)->getSource()->getMarked());
         for(set<Vertex*>::iterator itrv = this->vertices.begin(); itrv != this->vertices.end(); itrv++){
             if((*itrv)->getMarked() == (*itr)->getSource()->getMarked() || (*itrv)->getMarked() == (*itr)->getDestination()->getMarked() ){
                 (*itrv)->setMarked((*itr)->getSource()->getMarked());
-
             }
         }
     }

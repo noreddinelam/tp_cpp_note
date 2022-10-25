@@ -16,7 +16,7 @@ class GC {
         void addVertex(Vertex&);
         void addVertices(set<Vertex *>&);
         void addEdge(Edge&);
-        void addEdges(set<Edge *, compareEdgesByWeight>&);
+        void addEdges(set<Edge *>&);
         void distruction();
         static GC *getInstance();
 };

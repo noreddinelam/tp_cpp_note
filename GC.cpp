@@ -32,7 +32,7 @@ void GC::addEdge(Edge& edge) {
     instance->edges.insert(&edge);
 }
 
-void GC::addEdges(set<Edge *, compareEdgesByWeight>& edges) {
+void GC::addEdges(set<Edge *>& edges) {
     for (set<Edge*>::iterator itr = edges.begin(); itr != edges.end(); itr++) {
         instance->edges.insert(*itr);
     }
