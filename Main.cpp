@@ -51,6 +51,7 @@ int main(int argc, char const *argv[])
         cout << *(*itr)<<endl;
     }
     cout << "----------------------------" << endl;
+    cout << "Tree weight after kruskal (symetrise) : " << graph.poids() << endl << endl; // affichage du poids de l'arbre
     delete gc; // lancer la destruction du GC qui entraine la distruction de tous les objets utilisés.
     return 0;
 }
